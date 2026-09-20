@@ -1,26 +1,22 @@
 {
   "kind": "evm_project",
-  "name": "Time Lock",
-  "chainId": 11155111,
   "token": {
+    "contract": "Lock",
     "name": "Lock",
     "symbol": "LOCK",
-    "decimals": 18,
-    "totalSupply": "1000000000000000000000000000",
-    "contract": "src/Lock.sol:Lock",
-    "constructorArgs": []
+    "decimals": 18
   },
   "contracts": [
     {
-      "name": "TimeLock",
-      "contract": "src/TimeLock.sol:TimeLock",
+      "contract": "TimeLock",
       "constructorArgs": ["$token"]
     }
   ],
   "pool": {
-    "currency": "0x0000000000000000000000000000000000000000",
+    "pairedCurrency": "0x0000000000000000000000000000000000000000",
     "fee": 3000,
     "tickSpacing": 60,
     "initialPrice": "79228162514264337593543950336"
-  }
+  },
+  "notes": "Sepolia Time Lock project. Lock (LOCK) has 18 decimals and a zero-argument constructor that mints its entire fixed supply to its deployer, with no subsequent mint path. Deploy Lock first, then TimeLock with the deployed token address as its sole address constructor argument ($token). No initialization calls are required. Neither contract has an owner, admin, upgradeability, or fees. Depositors approve LOCK and create irrevocable locks for beneficiaries at future Unix timestamps. Only the beneficiary can withdraw at or after the unlock time or extend an unwithdrawn lock; shortening is forbidden. Per-beneficiary enumeration retains withdrawn locks. Application mutations use checks-effects-interactions and a shared reentrancy guard, with events for locking, extension, and withdrawal. TimeLock supports the included exact-transfer LOCK token only. Incorrect beneficiaries, lost keys, distant unlock times, and direct token transfers can strand funds; there is no rescue path. The hookless pool pairs with native ETH using fee 3000, tick spacing 60, and decimal sqrtPriceX96 79228162514264337593543950336; these parameters do not promise a market valuation. Independent review of the accepted source, final manifest, constructor binding, and deployment artifacts is required before deployment. Contributor checks do not constitute independent release approval. Contributors never broadcast; only the authorized deployer deploys the admitted release."
 }

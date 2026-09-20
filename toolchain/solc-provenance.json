@@ -1,0 +1,11 @@
+{
+  "path": "solc-linux-amd64-v0.8.26+commit.8a97fa7a",
+  "version": "0.8.26",
+  "build": "commit.8a97fa7a",
+  "longVersion": "0.8.26+commit.8a97fa7a",
+  "keccak256": "0x9d138fc8bb5c20b4aaaa3a868d16eb897584ce8536a5c3a466d718e47ccbafb7",
+  "sha256": "0xd5f23436f443edb85d8e76906d12f0a86ce0490e7663a9e608efeb7a93f149ef",
+  "urls": [
+    "dweb:/ipfs/Qmctr14Exi4R3nbhcg3fYsMDesZ8PBzfgPpLfprvFy7ANZ"
+  ]
+}
